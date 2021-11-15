@@ -1,0 +1,25 @@
+div
+{
+    background-color: black;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* app-side-bar
+{
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+app-result-view
+{
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+} */
