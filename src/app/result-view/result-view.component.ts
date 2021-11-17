@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { NgRedux, select } from '@angular-redux/store';
-import { IappState } from '../store';
+import { IappState } from '../redux/store';
+
+import { RootModel } from '../Models/RootModel'
 
 import { Car } from '../Models/Car'
 
@@ -19,9 +21,9 @@ export class ResultViewComponent implements OnInit {
     private ngRedux: NgRedux<IappState>,
     private _APIService: APIService
     ) {
-      this.ngRedux.select<Array<Car>>('cars')
-      .subscribe((_cars: Array<Car>) => {
-        this.Cars = _cars
+      this.ngRedux.select<RootModel>('root_model')
+      .subscribe((Model: RootModel) => {
+        this.Cars = Model.Cars
       })
 
     }
@@ -33,11 +35,8 @@ export class ResultViewComponent implements OnInit {
   // }
 
   ngOnInit(): void {
-    this._APIService.getAPI();
+
   }
-
-
-
 }
 
 function input(arg0: string) {

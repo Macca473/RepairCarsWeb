@@ -1,10 +1,17 @@
 <div class="BackGround">
-    <p>result-view works!</p>
-    <h1>{{Cars[0].car_name}}</h1>
-    <!-- <ul>
-        <li>
+    <!-- <h1>{{Cars[0].car_name}}</h1> -->
+    <!-- <ul class="List1Container">
+        <li *ngFor="let car of Cars" class="List1Part">
+            
+            <div>
 
+            </div>
         </li>
     </ul> -->
+    <div class="List1Container">
+        <div *ngFor="let car of Cars" class="List1Item">
+            <p class="ItemText">{{car.car_name}}</p>
+        </div>
+    </div>
 </div>
 

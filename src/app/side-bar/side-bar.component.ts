@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { APIService } from '../services/CallApi'
+
 @Component({
   selector: 'app-side-bar',
   templateUrl: './side-bar.component.html',
@@ -11,7 +13,7 @@ export class SideBarComponent implements OnInit {
 
   InputSearch: String | undefined;
 
-  constructor() { }
+  constructor(private _APIService: APIService) { }
 
   SelectSearchType(inputint: Number): void {
 
@@ -22,6 +24,7 @@ export class SideBarComponent implements OnInit {
 
   Search(inputString: String): void {
     this.InputSearch = inputString;
+    this._APIService.getAPI(inputString);
   }
 
 

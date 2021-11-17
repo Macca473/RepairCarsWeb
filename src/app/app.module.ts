@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { ResultViewComponent } from './result-view/result-view.component';
-import { IappState, rootReducer, INIT_STATE } from './store';
+import { IappState, rootReducer, INIT_STATE } from './redux/store';
 
 @NgModule({
   declarations: [
