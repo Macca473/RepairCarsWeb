@@ -16,12 +16,49 @@ export class APIService {
         private ngRedux: NgRedux<IappState>
         ) {}
 
-    getAPI(Search: String) {
-        this.http.get<Array<Car>>(`http://localhost:3000/CarsContaining/${Search}`)
-        .subscribe((Model: Array<Car>) => {
-            let StoreInt: RootModel = <RootModel>{};
-            StoreInt.Cars = Model;
-            this.ngRedux.dispatch(callGetAPI(StoreInt))
+    getAPI(SubURI: string, Search: String) {
+        
+        let StoreInt: RootModel = <RootModel>{};
+
+        let URI: String = 'http://localhost:3000/';
+
+        let ViewType: String = "";
+
+        this.http.get<any>(`${URI}${SubURI}${Search}`)
+        .subscribe((Model: any) => {
+            switch (SubURI) {
+                case ('CarsContaining/'): {
+                    StoreInt.Cars = Model;
+                    ViewType = "CARS"
+                    break;
+                }
+                case ('PartsContaining/'): {
+                    StoreInt.Parts = Model;
+                    ViewType = "PARTS"
+                    break;
+                }
+            }
+        this.ngRedux.dispatch(callGetAPI(StoreInt, ViewType))
+        })
+    }
+
+    PostAPI(SubURI: string, Input1: String) {
+
+        console.log("PostAPI:" + Input1 );
+
+        let StoreInt: RootModel = <RootModel>{};
+
+        let URI: String = 'http://localhost:3000/';
+
+        let ViewType: String = "";
+
+        let headers = {'Access-Control-Allow-Origin': '*', }
+
+        let body = { title: 'Angular POST Request Example' }
+
+        this.http.post<any>(`${URI}${SubURI}${Input1}`, null)
+        .subscribe(data => {
+            return data;
         })
     }
 }

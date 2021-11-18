@@ -1,5 +1,13 @@
 <div class="BackGround">
     <div class="SearchOption">
-        <input #inputSearch type="search" id="Search" class="SearchOptionTxt" (click)="SelectSearchType(1)" (search)="Search(inputSearch.value)" placeholder="Search Cars">
+        <input #CarSearch type="search" id="Search" class="InputTxt" (search)="SearchCars(CarSearch.value)" placeholder="Search Cars">
+    </div>
+    <div class="SearchOption">
+        <button class="Button" (click)="AddCar(CarName.value)">+</button>
+        <input #CarName type="search" id="AddCar" class="InputWithButtonTxt" placeholder="Add Car">
+    </div>
+    <div class="SearchOption">
+        <input #PartSearch type="search" id="Search" class="InputTxt" (search)="SearchParts(PartSearch.value)" placeholder="Search Parts">
     </div>
 </div>
+

@@ -15,31 +15,7 @@
     grid-template-columns: auto auto;
 }
 
-/* .SearchOptionButton
-{
-    position: relative;
-    top: 5%;
-    left: 2%;
-    height: 90%;
-    width: 54px;
-    border-radius: 15px 0px 0px 15px;
-    background-color: rgb(189, 226, 114);;
-    border: none;
-    transition: all .1s ease-in;
-    font-weight: 500;
-    font-size: large;
-}
-
-.SearchOptionButton:hover
-{
-    background-color: lightgrey;
-}
-
-.SearchOptionButton:focus {     
-    background-color:rgb(196, 196, 196);
-} */
-
-.SearchOptionTxt {
+.InputTxt {
     position: relative;
     top: 5%;
     left: 2%;
@@ -53,17 +29,66 @@
     font-size: large;
 }
 
-.SearchOptionTxt:hover
+.InputTxt:hover
 {
     background-color: rgb(196, 196, 196);
 }
 
-.SearchOptionTxt:focus {     
+.InputTxt:focus {     
     background-color:rgb(236, 236, 236);
 }
 
 /* .SearchOptionButton:focus + .SearchOptionTxt {     
     display: block;
     background-color: aquamarine;
+} */
+
+.InputWithButtonTxt {
+    position: relative;
+    top: 5%;
+    left: 2%;
+    height: 86.5%;
+    width: 80%;
+    border-radius: 1px 15px 15px 1px;
+    background-color: rgb(146, 146, 146);
+    border: black;
+    transition: all .1s ease-in;
+    font-weight: 500;
+    font-size: large;
+}
+
+.InputWithButtonTxt:hover
+{
+    background-color: rgb(196, 196, 196);
+}
+
+.WithButton:focus {     
+    background-color:rgb(236, 236, 236);
+}
+
+.Button
+{
+    position: relative;
+    top: 5%;
+    left: 2%;
+    height: 87%;
+    width: 10%;
+    border-radius: 15px 1px 1px 15px;
+    background-color: rgb(228, 254, 255);
+    border: none;
+    transition: all .1s ease-in;
+    font-weight: 500;
+    font-size: 40px;
+    color: rgb(0, 206, 17);
+}
+
+.Button:hover
+{
+    background-color: rgb(0, 206, 17);
+    color: rgb(228, 254, 255);
+}
+
+/* .Button:focus {     
+    background-color:rgb(196, 196, 196);
 } */
 

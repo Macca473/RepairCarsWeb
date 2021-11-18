@@ -8,9 +8,15 @@
             </div>
         </li>
     </ul> -->
-    <div class="List1Container">
+    
+    <div class="List1Container" *ngIf="ViewType == 'CARS'">
         <div *ngFor="let car of Cars" class="List1Item">
             <p class="ItemText">{{car.car_name}}</p>
+        </div>
+    </div>
+    <div class="List1Container" *ngIf="ViewType == 'PARTS'">
+        <div *ngFor="let part of Parts" class="List1Item">
+            <p class="ItemText">{{part.part_name}}</p>
         </div>
     </div>
 </div>

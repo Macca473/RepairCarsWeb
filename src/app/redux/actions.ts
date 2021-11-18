@@ -1,27 +1,30 @@
 export enum ActionEnum {
-    GetAPI = 'Get From API',
+    GETAPI = 'Get From API',
     POSTAPI = 'Post From API',
-    DELAPI = 'delete from API'
+    DELAPI = 'delete From API'
   }
 
-  export const callGetAPI = (payload: any) => {
+  export const callGetAPI = (payload: any, subtype: String) => {
     return {
-      type: ActionEnum.GetAPI,
-      payload
+      type: ActionEnum.GETAPI,
+      payload,
+      subtype
     }
   }
 
-  export const callPostAPI = (payload: any) => {
+  export const callPostAPI = (payload: any, subtype: String) => {
     return {
       type: ActionEnum.POSTAPI,
-      payload
+      payload,
+      subtype
     }
   }
 
-  export const callDeleteAPI = (payload: any) => {
+  export const callDeleteAPI = (payload: any, subtype: number) => {
     return {
       type: ActionEnum.DELAPI,
-      payload
+      payload,
+      subtype
     }
   }
 

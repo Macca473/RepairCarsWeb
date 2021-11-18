@@ -9,23 +9,28 @@ import { APIService } from '../services/CallApi'
 })
 export class SideBarComponent implements OnInit {
 
-  InputChoice: Number = 0;
+  CarSearch: String | undefined;
 
-  InputSearch: String | undefined;
+  PartSearch: String | undefined;
+
+  CarName: String | undefined;
 
   constructor(private _APIService: APIService) { }
 
-  SelectSearchType(inputint: Number): void {
+  SearchCars(inputString: String): void {
+    this.CarSearch = inputString;
+    this._APIService.getAPI('CarsContaining/',inputString);
+  };
 
-    this.InputChoice = inputint;
-
-    console.log("inputChoice Changed to: " + this.InputChoice);
+  AddCar(inputName: String): void {
+    this.CarName = inputName;
+    this._APIService.PostAPI('AddCar/',inputName);
   }
 
-  Search(inputString: String): void {
-    this.InputSearch = inputString;
-    this._APIService.getAPI(inputString);
-  }
+  SearchParts(inputString: String): void {
+    this.PartSearch = inputString;
+    this._APIService.getAPI('PartsContaining/',inputString);
+  };
 
 
 
