@@ -16,9 +16,20 @@ export class APIService {
         private ngRedux: NgRedux<IappState>
         ) {}
 
-    getAPI(SubURI: string, Search: String) {
-        
-        let StoreInt: RootModel = <RootModel>{};
+
+
+    getAPI(SubURI: string, Search: String | number) {
+
+        let StoreInt = <RootModel>{};
+
+        let Storedstore = <RootModel>{};
+
+        this.ngRedux.select<RootModel>('root_model')
+            .subscribe((Model: RootModel) => {
+                Storedstore = Model;
+            })
+
+            console.log("Storedstore: " + JSON.stringify(Storedstore));
 
         let URI: String = 'http://localhost:3000/';
 
@@ -37,11 +48,16 @@ export class APIService {
                     ViewType = "PARTS"
                     break;
                 }
+                case ('FindCarParts/'): {
+                    StoreInt.Cars[Number(Search)].CarParts = Model;
+                    ViewType = "CARS"
+                    break;
+                }
             }
-        this.ngRedux.dispatch(callGetAPI(StoreInt, ViewType))
+        this.ngRedux.dispatch(callGetAPI(StoreInt, ViewType));
         })
     }
-
+    //StoreInt.Cars.concat(Model);
     PostAPI(SubURI: string, Input1: String) {
 
         console.log("PostAPI:" + Input1 );

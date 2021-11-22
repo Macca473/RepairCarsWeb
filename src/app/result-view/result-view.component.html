@@ -10,14 +10,19 @@
     </ul> -->
     
     <div class="List1Container" *ngIf="ViewType == 'CARS'">
-        <div *ngFor="let car of Cars" class="List1Item">
-            <p class="ItemText">{{car.car_name}}</p>
+        <div *ngFor="let car of Cars">
+            <button class="List1Item" (click)="SelectCar(car.car_id)">
+                <p class="ItemText">{{car.car_name}}</p>
+            </button>
         </div>
     </div>
+    <div class="List2Container" *ngIf="ViewType == 'CARS'">
+
+    </div>
     <div class="List1Container" *ngIf="ViewType == 'PARTS'">
-        <div *ngFor="let part of Parts" class="List1Item">
+        <button *ngFor="let part of Parts" class="List1Item">
             <p class="ItemText">{{part.part_name}}</p>
-        </div>
+        </button>
     </div>
 </div>
 

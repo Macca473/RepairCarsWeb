@@ -1,10 +1,14 @@
+import { RootModel } from "../Models/RootModel";
+
+import { IappState } from "./store";
+
 export enum ActionEnum {
     GETAPI = 'Get From API',
     POSTAPI = 'Post From API',
     DELAPI = 'delete From API'
   }
 
-  export const callGetAPI = (payload: any, subtype: String) => {
+  export const callGetAPI = (payload: RootModel, subtype: String) => {
     return {
       type: ActionEnum.GETAPI,
       payload,
@@ -20,7 +24,7 @@ export enum ActionEnum {
     }
   }
 
-  export const callDeleteAPI = (payload: any, subtype: number) => {
+  export const callDeleteAPI = (payload: any, subtype: String) => {
     return {
       type: ActionEnum.DELAPI,
       payload,

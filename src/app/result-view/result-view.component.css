@@ -5,6 +5,7 @@
     position: absolute;
     top: 0;
     left: 25%;
+    display: flex;
 }
 
 .List1Container {
@@ -13,14 +14,22 @@
 }
 
 .List1Item {
-    background-color: brown;
+    background-color: rgb(255, 179, 93);
     width: 90%;
     height: 50px;
     margin: 6% 6%;
     border-radius: 15px 15px 15px 15px;
     border: black;
     transition: all .1s ease-in;
+}
 
+.List1Item:hover
+{
+    background-color: rgb(255, 206, 151);
+}
+
+.List1Item:focus {     
+    background-color:rgb(180, 255, 220);
 }
 
 .ItemText
@@ -29,5 +38,11 @@
     font-weight: 500;
     font-size: large;
     position: relative;
-    top: 30%;
+    bottom: 5%;
+    pointer-events: none;
+}
+
+.List2Container {
+    width: 25%;
+    height: 95%;
 }

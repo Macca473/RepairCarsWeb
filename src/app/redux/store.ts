@@ -18,17 +18,21 @@ export const INIT_STATE: IappState = {
 
 // let http: HttpClient;
 
-export function rootReducer(state: IappState = INIT_STATE, action: any) {
+// on(ScoreboardPageActions.setScores, (state, { game }) => ({ home: game.home, away: game.away }))
 
-
-
+export function rootReducer(state: IappState = INIT_STATE, action: any): IappState {
     switch (action.type) {
         case ActionEnum.GETAPI:
-          return {
-            ...state,
-            root_model: action.payload,
+          
+
+          let newState = {...state, 
+            root_model: action.payload, 
             callType: action.subtype
-          };
+          }
+          console.log("OldState: " + JSON.stringify(state));
+          console.log("InputState: " + JSON.stringify(action.payload));
+          console.log("NewState: " + JSON.stringify(newState));
+          return newState;
           case ActionEnum.POSTAPI:
             return {
               ...state,
@@ -44,4 +48,5 @@ export function rootReducer(state: IappState = INIT_STATE, action: any) {
         default:
           return state;
       }
+  
 }

@@ -28,6 +28,6 @@ import { IappState, rootReducer, INIT_STATE } from './redux/store';
 })
 export class AppModule {
   constructor(ngRedux: NgRedux<IappState>) {
-    ngRedux.configureStore(rootReducer, INIT_STATE)
+    ngRedux.configureStore(rootReducer, INIT_STATE);
   }
 }

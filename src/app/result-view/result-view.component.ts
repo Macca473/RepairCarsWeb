@@ -3,11 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { NgRedux, select } from '@angular-redux/store';
 import { IappState } from '../redux/store';
 
-import { RootModel } from '../Models/RootModel'
+import { RootModel } from '../Models/RootModel';
 
-import { Car } from '../Models/Car'
+import { Car } from '../Models/Car';
 
-import { Part } from '../Models/Part'
+import { Part } from '../Models/Part';
+
+import { CarPart } from '../Models/CarPart';
 
 import { APIService } from '../services/CallApi'
 import { Observable } from 'rxjs/internal/Observable';
@@ -27,6 +29,7 @@ export class ResultViewComponent implements OnInit {
       .subscribe((Model: RootModel) => {
         this.Cars = Model.Cars;
         this.Parts = Model.Parts;
+        // this.CarParts = Model.CarParts;
       })
       this.ngRedux.select<String>('callType')
       .subscribe((CallType: String) => {
@@ -40,11 +43,20 @@ export class ResultViewComponent implements OnInit {
 
   Parts: Array<Part> = new Array<Part>();
 
+  CarParts: Array<CarPart> = new Array<CarPart>();
+
+  SelectedCarID: number | undefined;
+
   ViewType: String = "";
 
   // ListCars(): void {
   //   this.ngRedux.subscribe
   // }
+
+  SelectCar(inputID: number): void {
+    this.SelectedCarID = inputID;
+    this._APIService.getAPI('FindCarParts/',inputID);
+  }
 
   ngOnInit(): void {
 
