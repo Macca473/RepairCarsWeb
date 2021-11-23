@@ -18,18 +18,18 @@ export class APIService {
 
 
 
-    getAPI(SubURI: string, Search: String | number) {
+    getAPI(SubURI: string, Search: String | number, Search2?: String | number) {
 
         let StoreInt = <RootModel>{};
 
-        let Storedstore = <RootModel>{};
+        // let Storedstore = <RootModel>{};
 
-        this.ngRedux.select<RootModel>('root_model')
-            .subscribe((Model: RootModel) => {
-                Storedstore = Model;
-            })
+        // this.ngRedux.select<RootModel>('root_model')
+        //     .subscribe((Model: RootModel) => {
+        //         Storedstore = Model;
+        //     })
 
-            console.log("Storedstore: " + JSON.stringify(Storedstore));
+        // console.log("Storedstore: " + JSON.stringify(Storedstore));
 
         let URI: String = 'http://localhost:3000/';
 
@@ -40,25 +40,25 @@ export class APIService {
             switch (SubURI) {
                 case ('CarsContaining/'): {
                     StoreInt.Cars = Model;
-                    ViewType = "CARS"
+                    StoreInt.SubType = "CARS"
                     break;
                 }
                 case ('PartsContaining/'): {
                     StoreInt.Parts = Model;
-                    ViewType = "PARTS"
+                    StoreInt.SubType = "PARTS"
                     break;
                 }
                 case ('FindCarParts/'): {
-                    StoreInt.Cars[Number(Search)].CarParts = Model;
-                    ViewType = "CARS"
+                    StoreInt.CarParts = Model;
+                    StoreInt.SubType = "CARS"
                     break;
                 }
             }
-        this.ngRedux.dispatch(callGetAPI(StoreInt, ViewType));
+        this.ngRedux.dispatch(callGetAPI(StoreInt));
         })
     }
     //StoreInt.Cars.concat(Model);
-    PostAPI(SubURI: string, Input1: String) {
+    PostAPI(SubURI: string, Input1: String | number, Input2?: String | number) {
 
         console.log("PostAPI:" + Input1 );
 
@@ -72,9 +72,25 @@ export class APIService {
 
         let body = { title: 'Angular POST Request Example' }
 
-        this.http.post<any>(`${URI}${SubURI}${Input1}`, null)
-        .subscribe(data => {
-            return data;
-        })
+        if (Input2 != undefined)
+        {
+            let SLink: string = `${URI}${SubURI}${Input1}/${Input2}`;
+
+            this.http.post<any>(SLink, null)
+            .subscribe(data => {
+                console.log(data);
+                return data;
+            })
+        }
+        else
+        {
+            this.http.post<any>(`${URI}${SubURI}${Input1.toString()}`, null)
+            .subscribe(data => {
+                console.log(data);
+                return data;
+            })
+        }
+
+
     }
 }

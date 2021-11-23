@@ -9,8 +9,13 @@
 }
 
 .List1Container {
+    overflow: auto;
     width: 25%;
     height: 95%;
+}
+
+.ListDiv {
+    width: 95%;
 }
 
 .List1Item {
@@ -21,6 +26,8 @@
     border-radius: 15px 15px 15px 15px;
     border: black;
     transition: all .1s ease-in;
+    display: flex;
+    text-align: center;
 }
 
 .List1Item:hover
@@ -34,15 +41,51 @@
 
 .ItemText
 {
+    position: relative;
+    left: 5%;
     text-align: center;
     font-weight: 500;
     font-size: large;
     position: relative;
     bottom: 5%;
     pointer-events: none;
+    
 }
 
 .List2Container {
+    overflow: auto;
     width: 25%;
     height: 95%;
+}
+
+.BrokenTrue {
+    position: relative;
+    top: 10%;
+    width: 20%;
+    height: 80%;
+    border-radius: 15px 15px 15px 15px;
+    border: black;
+    transition: all .1s ease-in;
+    background-color: rgb(255, 125, 125);
+}
+
+.BrokenTrue:hover
+{
+    background-color: rgb(255, 166, 166);
+}
+
+.BrokenFalse {
+    position: relative;
+    top: 10%;
+    width: 20%;
+    height: 80%;
+    border-radius: 15px 15px 15px 15px;
+    border: black;
+    transition: all .1s ease-in;
+    background-color: rgb(125, 255, 125);
+}
+
+.BrokenFalse:hover
+{
+    background-color: rgb(166, 255, 166);
 }

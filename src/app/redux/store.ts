@@ -25,13 +25,18 @@ export function rootReducer(state: IappState = INIT_STATE, action: any): IappSta
         case ActionEnum.GETAPI:
           
 
-          let newState = {...state, 
-            root_model: action.payload, 
-            callType: action.subtype
-          }
-          console.log("OldState: " + JSON.stringify(state));
-          console.log("InputState: " + JSON.stringify(action.payload));
-          console.log("NewState: " + JSON.stringify(newState));
+          // let newState = {...state,
+          //   root_model: action.payload
+          // }
+
+          let RMnewState: RootModel = Object.assign({}, state.root_model, action.payload);
+
+          let newState: IappState = {root_model: RMnewState, callType: 'Get From API'};
+
+          // console.log("OldState: " + JSON.stringify(state));
+          // console.log("InputState: " + JSON.stringify(action.payload));
+          // console.log("RMnewState: " + JSON.stringify(RMnewState));
+          // console.log("NewState: " + JSON.stringify(newState));
           return newState;
           case ActionEnum.POSTAPI:
             return {

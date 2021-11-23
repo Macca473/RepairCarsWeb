@@ -8,27 +8,24 @@ export enum ActionEnum {
     DELAPI = 'delete From API'
   }
 
-  export const callGetAPI = (payload: RootModel, subtype: String) => {
+  export const callGetAPI = (payload: RootModel) => {
     return {
       type: ActionEnum.GETAPI,
-      payload,
-      subtype
+      payload
     }
   }
 
-  export const callPostAPI = (payload: any, subtype: String) => {
+  export const callPostAPI = (payload: any) => {
     return {
       type: ActionEnum.POSTAPI,
-      payload,
-      subtype
+      payload
     }
   }
 
-  export const callDeleteAPI = (payload: any, subtype: String) => {
+  export const callDeleteAPI = (payload: any) => {
     return {
       type: ActionEnum.DELAPI,
-      payload,
-      subtype
+      payload
     }
   }
 
