@@ -1,14 +1,4 @@
 <div class="BackGround">
-    <!-- <h1>{{Cars[0].car_name}}</h1> -->
-    <!-- <ul class="List1Container">
-        <li *ngFor="let car of Cars" class="List1Part">
-            
-            <div>
-
-            </div>
-        </li>
-    </ul> -->
-    
     <div class="List1Container" *ngIf="ViewType == 'CARS'">
         <div *ngFor="let car of Cars" class="ListDiv">
             <button class="List1Item" (click)="SelectCar(car.car_id)">
